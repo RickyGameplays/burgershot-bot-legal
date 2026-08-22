@@ -1,1 +1,468 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Política de Privacidade do BurgerShot Bot.">
+  <meta name="robots" content="index,follow">
+  <title>Política de Privacidade — BurgerShot Bot</title>
+  
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-soft:#111a2c;
+    --card:#162238;
+    --card-2:#1b2a45;
+    --text:#f7f8fb;
+    --muted:#b8c2d1;
+    --blue:#1f4274;
+    --blue-2:#2b5a99;
+    --red:#c91f2c;
+    --orange:#db681f;
+    --gold:#e0ae66;
+    --brown:#642b16;
+    --border:rgba(255,255,255,.10);
+    --shadow:0 20px 60px rgba(0,0,0,.25);
+    --radius:22px;
+  }
 
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(43,90,153,.22), transparent 34%),
+      radial-gradient(circle at top right, rgba(219,104,31,.15), transparent 28%),
+      var(--bg);
+    line-height:1.7;
+  }
+
+  a{color:inherit}
+  .wrap{width:min(1100px,calc(100% - 36px));margin:0 auto}
+  .site-header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(11,18,32,.84);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    min-height:76px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:24px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+    text-decoration:none;font-weight:800;letter-spacing:.2px;
+  }
+  .brand-mark{
+    width:42px;height:42px;border-radius:50%;
+    display:grid;place-items:center;
+    background:
+      linear-gradient(180deg,var(--orange) 0 36%,var(--brown) 36% 62%,#ff9e32 62% 70%,var(--brown) 70% 82%,var(--gold) 82% 100%);
+    border:4px solid var(--blue);
+    box-shadow:0 0 0 3px rgba(255,255,255,.95) inset;
+    position:relative;
+  }
+  .brand-mark:after{
+    content:"";
+    position:absolute;width:7px;height:7px;border-radius:50%;
+    background:#f0a35f;top:8px;left:14px;
+    box-shadow:9px -1px 0 #f0a35f,-7px 5px 0 #f0a35f;
+  }
+  .nav-links{display:flex;flex-wrap:wrap;gap:8px}
+  .nav-links a{
+    text-decoration:none;color:var(--muted);
+    padding:9px 12px;border-radius:12px;
+  }
+  .nav-links a:hover,.nav-links a[aria-current="page"]{
+    color:#fff;background:rgba(255,255,255,.07)
+  }
+
+  .hero{padding:86px 0 56px}
+  .hero-grid{
+    display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:#ffd09a;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(201,31,44,.15)}
+  h1{font-size:clamp(2.4rem,7vw,5.6rem);line-height:.98;margin:18px 0 22px;letter-spacing:-.045em}
+  .hero p{font-size:1.15rem;color:var(--muted);max-width:720px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    text-decoration:none;font-weight:750;padding:13px 18px;border-radius:14px;
+    border:1px solid var(--border);transition:.2s ease
+  }
+  .btn.primary{background:linear-gradient(135deg,var(--red),#ef4b3f);border-color:transparent}
+  .btn.secondary{background:rgba(255,255,255,.05)}
+  .btn:hover{transform:translateY(-1px)}
+
+  .bot-card{
+    min-height:330px;border:1px solid var(--border);
+    background:linear-gradient(160deg,var(--card),var(--card-2));
+    border-radius:30px;box-shadow:var(--shadow);
+    display:grid;place-items:center;padding:30px;position:relative;overflow:hidden;
+  }
+  .bot-card:before,.bot-card:after{
+    content:"";position:absolute;border-radius:50%;filter:blur(0)
+  }
+  .bot-card:before{width:190px;height:190px;background:rgba(43,90,153,.35);top:-60px;right:-40px}
+  .bot-card:after{width:150px;height:150px;background:rgba(219,104,31,.22);bottom:-50px;left:-35px}
+  .bot-icon{
+    width:180px;aspect-ratio:1;border-radius:36px;
+    background:linear-gradient(180deg,#e9eef6,#9ca9bb);
+    border:9px solid #263246;position:relative;z-index:1;
+    box-shadow:0 20px 50px rgba(0,0,0,.28)
+  }
+  .bot-icon .antenna{
+    position:absolute;left:50%;top:-57px;transform:translateX(-50%);
+    width:14px;height:52px;background:#aeb8c5;border:5px solid #263246;border-bottom:none
+  }
+  .bot-icon .antenna:after{
+    content:"";position:absolute;width:26px;height:26px;border-radius:50%;
+    background:var(--red);border:5px solid #263246;left:50%;top:-22px;transform:translateX(-50%)
+  }
+  .bot-face{
+    position:absolute;inset:25px 18px 55px;border-radius:24px;
+    background:linear-gradient(180deg,#8f441f,#4a2215);border:6px solid #263246;
+  }
+  .eye{position:absolute;top:38px;width:22px;height:22px;border:6px solid white;border-top-color:transparent;border-left-color:transparent;border-radius:50%;transform:rotate(45deg)}
+  .eye.left{left:33px}.eye.right{right:33px}
+  .burger-strip{
+    position:absolute;left:10px;right:10px;bottom:12px;height:34px;
+    background:linear-gradient(180deg,var(--orange) 0 45%,var(--gold) 45% 100%);
+    border-radius:18px;border:5px solid #263246
+  }
+
+  .section{padding:30px 0 70px}
+  .section h2{font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-.025em;margin:0 0 14px}
+  .lead{color:var(--muted);max-width:820px}
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
+  .card{
+    border:1px solid var(--border);background:rgba(22,34,56,.82);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)
+  }
+  .card h3{margin:0 0 8px}
+  .card p{margin:0;color:var(--muted)}
+
+  main.article{padding:58px 0 80px}
+  .article-shell{
+    display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:30px;align-items:start
+  }
+  article{
+    background:rgba(17,26,44,.86);border:1px solid var(--border);
+    border-radius:26px;padding:clamp(24px,5vw,48px);box-shadow:var(--shadow)
+  }
+  article h1{font-size:clamp(2.1rem,5vw,4rem);margin-top:0}
+  article h2{margin-top:38px;font-size:1.45rem;line-height:1.2}
+  article p,article li{color:#d6dce6}
+  article strong{color:#fff}
+  article ul{padding-left:22px}
+  article li+li{margin-top:7px}
+  .updated{
+    display:inline-block;margin-bottom:18px;color:#ffd09a;
+    background:rgba(219,104,31,.12);border:1px solid rgba(219,104,31,.25);
+    border-radius:999px;padding:7px 12px;font-size:.92rem
+  }
+  .notice{
+    margin:28px 0;padding:18px 20px;border-radius:16px;
+    background:rgba(43,90,153,.14);border:1px solid rgba(92,147,218,.24);color:#dfeaff
+  }
+  .toc{
+    position:sticky;top:98px;background:rgba(22,34,56,.82);
+    border:1px solid var(--border);border-radius:18px;padding:18px
+  }
+  .toc strong{display:block;margin-bottom:9px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 0}
+  .toc a:hover{color:#fff}
+  .contact-box{
+    margin-top:20px;padding:18px;border-radius:16px;
+    background:rgba(255,255,255,.04);border:1px solid var(--border)
+  }
+  code.inline{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.92em;padding:.15em .4em;border-radius:7px;background:rgba(255,255,255,.08)
+  }
+
+  footer{border-top:1px solid var(--border);padding:28px 0 40px;color:var(--muted)}
+  .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .footer-row a{color:var(--muted);text-decoration:none}
+  .footer-row a:hover{color:#fff}
+
+  @media (max-width:850px){
+    .hero-grid,.article-shell{grid-template-columns:1fr}
+    .bot-card{min-height:260px}
+    .toc{position:static;order:-1}
+  }
+  @media (max-width:640px){
+    .nav{align-items:flex-start;padding:16px 0;flex-direction:column}
+    .nav-links{width:100%}
+    .nav-links a{padding-left:0;padding-right:14px}
+    .hero{padding-top:56px}
+    .cards{grid-template-columns:1fr}
+  }
+</style>
+
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="BurgerShot Bot - página inicial">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>BurgerShot Bot</span>
+    </a>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="index.html" >Início</a>
+      <a href="terms.html" >Termos</a>
+      <a href="privacy.html" aria-current="page">Privacidade</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="article">
+    <div class="wrap article-shell">
+      <article>
+        <span class="updated">Última atualização: 23 de agosto de 2026</span>
+        <h1>Política de Privacidade</h1>
+
+        <p>
+          Esta Política de Privacidade explica de que forma o <strong>BurgerShot Bot</strong>
+          pode recolher, utilizar, armazenar e proteger informações relacionadas com os
+          utilizadores que interagem com o bot através do Discord.
+        </p>
+
+        <p>
+          O objetivo é tratar apenas os dados necessários ao funcionamento das funcionalidades
+          de recrutamento, formação e administração da comunidade.
+        </p>
+
+        <div class="notice">
+          Antes de publicares esta página, substitui <strong>burgershot.bot@gmail.com</strong> e
+          <strong>Ricardo Pessoa</strong> pelos dados reais.
+        </div>
+
+        <h2 id="responsavel">1. Responsável pelo tratamento</h2>
+        <p>O BurgerShot Bot é administrado por:</p>
+        <div class="contact-box">
+          <strong>Responsável:</strong> Ricardo Pessoa<br>
+          <strong>Contacto:</strong> burgershot.bot@gmail.com
+        </div>
+        <p>
+          Este contacto pode ser utilizado para questões relacionadas com privacidade ou
+          pedidos relativos aos dados pessoais tratados pelo bot.
+        </p>
+
+        <h2 id="dados">2. Dados que podem ser tratados</h2>
+        <p>Consoante as funcionalidades utilizadas, o bot pode tratar:</p>
+        <ul>
+          <li>Discord User ID;</li>
+          <li>Discord Server/Guild ID;</li>
+          <li>IDs de canais e cargos necessários ao funcionamento do bot;</li>
+          <li>informações fornecidas durante uma candidatura;</li>
+          <li>estado e histórico administrativo de candidaturas;</li>
+          <li>disponibilidades indicadas pelo utilizador;</li>
+          <li>inscrições em formações;</li>
+          <li>presenças ou ausências;</li>
+          <li>resultados de avaliações;</li>
+          <li>estado de aprovação ou reprovação;</li>
+          <li>informações associadas a convites gerados pelo bot;</li>
+          <li>logs de determinadas ações administrativas;</li>
+          <li>datas e horas associadas a eventos registados.</li>
+        </ul>
+        <p>
+          O bot não tem como objetivo recolher palavras-passe, dados bancários ou outras
+          categorias de dados altamente sensíveis.
+        </p>
+
+        <h2 id="candidaturas">3. Dados de candidaturas</h2>
+        <p>
+          Durante um processo de recrutamento, o utilizador pode fornecer informações através
+          de formulários, comandos, botões ou outras funcionalidades do bot. Esses dados podem
+          ser guardados para permitir a análise da candidatura, acompanhamento do processo,
+          organização de formações, avaliação e registo do resultado final.
+        </p>
+
+        <h2 id="finalidades">4. Finalidades do tratamento</h2>
+        <p>Os dados podem ser utilizados para:</p>
+        <ul>
+          <li>identificar utilizadores no Discord;</li>
+          <li>gerir candidaturas e respetivos estados;</li>
+          <li>organizar disponibilidades;</li>
+          <li>gerir formações;</li>
+          <li>registar inscrições, presenças e avaliações;</li>
+          <li>gerir aprovações e reprovações;</li>
+          <li>criar e controlar convites;</li>
+          <li>atribuir cargos autorizados no Discord;</li>
+          <li>prevenir utilização abusiva;</li>
+          <li>manter registos administrativos;</li>
+          <li>diagnosticar erros e problemas técnicos;</li>
+          <li>proteger a segurança e integridade do sistema.</li>
+        </ul>
+        <p>Os dados não são utilizados para publicidade personalizada.</p>
+
+        <h2 id="base">5. Base e enquadramento do tratamento</h2>
+        <p>
+          Os dados são tratados na medida necessária para disponibilizar as funcionalidades
+          solicitadas, administrar os processos da comunidade e assegurar o funcionamento e
+          a segurança do serviço.
+        </p>
+        <p>
+          Quando aplicável, o tratamento deve respeitar a legislação de proteção de dados em vigor,
+          incluindo o <strong>Regulamento Geral sobre a Proteção de Dados (RGPD)</strong>.
+        </p>
+
+        <h2 id="armazenamento">6. Armazenamento e fornecedores técnicos</h2>
+        <p>
+          Alguns dados utilizados pelo BurgerShot Bot podem ser armazenados em serviços de base
+          de dados e infraestrutura utilizados pelo projeto, incluindo <strong>Supabase</strong>.
+          O bot também depende do <strong>Discord</strong> para disponibilizar as suas funcionalidades.
+        </p>
+        <p>
+          O acesso administrativo às credenciais e à base de dados deve ser limitado às pessoas
+          autorizadas. Tokens, chaves secretas e outras credenciais não devem ser expostos publicamente.
+        </p>
+
+        <h2 id="retencao">7. Conservação dos dados</h2>
+        <p>
+          Os dados devem ser mantidos apenas durante o período razoavelmente necessário às finalidades
+          para as quais foram recolhidos, à administração da comunidade ou a necessidades legítimas
+          de segurança e auditoria.
+        </p>
+        <p>Registos que deixem de ser necessários podem ser eliminados.</p>
+
+        <h2 id="partilha">8. Partilha de dados</h2>
+        <p>Os dados pessoais tratados pelo bot não são vendidos a terceiros.</p>
+        <p>
+          Pode existir tratamento técnico por fornecedores necessários ao funcionamento do serviço,
+          incluindo Discord, Supabase, alojamento e infraestrutura relacionada. Esses fornecedores
+          operam também de acordo com os respetivos termos, políticas e obrigações legais.
+        </p>
+        <p>
+          Os dados podem ainda ser disponibilizados quando exista obrigação legal ou pedido válido
+          de uma autoridade competente.
+        </p>
+
+        <h2 id="acesso">9. Acesso administrativo</h2>
+        <p>
+          Determinadas informações podem ser consultadas por membros autorizados da administração,
+          recrutamento ou formação quando tal seja necessário para executar as suas funções.
+        </p>
+        <p>
+          O acesso administrativo deve ser limitado às finalidades relacionadas com o funcionamento
+          da comunidade e do bot.
+        </p>
+
+        <h2 id="logs">10. Logs</h2>
+        <p>O BurgerShot Bot pode manter registos de determinadas ações para:</p>
+        <ul>
+          <li>segurança;</li>
+          <li>auditoria;</li>
+          <li>prevenção de abuso;</li>
+          <li>investigação de erros;</li>
+          <li>controlo das operações realizadas através do bot.</li>
+        </ul>
+        <p>
+          Esses registos podem incluir identificadores do Discord, ação realizada e respetiva data e hora.
+        </p>
+
+        <h2 id="direitos">11. Direitos dos utilizadores</h2>
+        <p>Quando aplicável, o utilizador pode solicitar:</p>
+        <ul>
+          <li>acesso aos dados pessoais tratados sobre si;</li>
+          <li>correção de informações inexatas;</li>
+          <li>eliminação dos seus dados;</li>
+          <li>limitação do tratamento;</li>
+          <li>oposição ao tratamento em determinadas circunstâncias;</li>
+          <li>informação adicional sobre a forma como os dados são utilizados.</li>
+        </ul>
+        <p>
+          Alguns dados podem ter de ser conservados quando exista obrigação legal, necessidade
+          de segurança ou outra justificação legítima para a respetiva conservação.
+        </p>
+
+        <h2 id="eliminacao">12. Pedidos de acesso, correção ou eliminação</h2>
+        <p>
+          Para solicitar acesso, correção ou eliminação dos dados associados à sua conta Discord,
+          utilize o contacto abaixo.
+        </p>
+        <div class="contact-box">
+          <strong>Contacto:</strong> burgershot.bot@gmail.com
+        </div>
+        <p>
+          Sempre que possível, o pedido deve incluir o <strong>Discord User ID</strong> para permitir
+          localizar corretamente os registos. Pode ser necessário confirmar que o pedido é efetuado
+          pelo titular da conta antes da divulgação ou eliminação de dados.
+        </p>
+
+        <h2 id="seguranca">13. Segurança</h2>
+        <p>
+          São aplicadas medidas técnicas e organizacionais razoáveis para reduzir o risco de acesso
+          não autorizado, alteração, perda ou divulgação indevida das informações armazenadas.
+          Nenhum sistema informático pode, contudo, garantir segurança absoluta.
+        </p>
+
+        <h2 id="menores">14. Menores</h2>
+        <p>
+          O BurgerShot Bot destina-se a utilizadores que cumpram os requisitos mínimos de idade
+          aplicáveis à utilização do Discord no respetivo país ou região.
+        </p>
+
+        <h2 id="alteracoes">15. Alterações a esta Política</h2>
+        <p>
+          Esta Política pode ser atualizada sempre que existam alterações relevantes nas
+          funcionalidades do bot, nos dados tratados, nos fornecedores técnicos ou nos requisitos legais.
+          A data apresentada no topo identifica a versão mais recente.
+        </p>
+
+        <h2 id="contacto">16. Contacto</h2>
+        <p>Para questões de privacidade, proteção de dados ou funcionamento do BurgerShot Bot:</p>
+        <div class="contact-box">
+          <strong>Responsável:</strong> Ricardo Pessoa<br>
+          <strong>Contacto:</strong> burgershot.bot@gmail.com
+        </div>
+
+        <p style="margin-top:30px">
+          Ao utilizar o BurgerShot Bot, o utilizador reconhece que tomou conhecimento desta Política de Privacidade.
+        </p>
+      </article>
+
+      <aside class="toc" aria-label="Índice">
+        <strong>Nesta página</strong>
+        <a href="#responsavel">1. Responsável</a>
+        <a href="#dados">2. Dados tratados</a>
+        <a href="#candidaturas">3. Candidaturas</a>
+        <a href="#finalidades">4. Finalidades</a>
+        <a href="#base">5. Enquadramento</a>
+        <a href="#armazenamento">6. Armazenamento</a>
+        <a href="#retencao">7. Conservação</a>
+        <a href="#partilha">8. Partilha</a>
+        <a href="#acesso">9. Acesso administrativo</a>
+        <a href="#logs">10. Logs</a>
+        <a href="#direitos">11. Direitos</a>
+        <a href="#eliminacao">12. Eliminação</a>
+        <a href="#seguranca">13. Segurança</a>
+        <a href="#menores">14. Menores</a>
+        <a href="#alteracoes">15. Alterações</a>
+        <a href="#contacto">16. Contacto</a>
+      </aside>
+    </div>
+  </main>
+  
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 BurgerShot Bot</span>
+    <span>
+      <a href="terms.html">Termos de Serviço</a>
+      &nbsp;·&nbsp;
+      <a href="privacy.html">Política de Privacidade</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
