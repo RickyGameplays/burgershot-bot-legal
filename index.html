@@ -1,1 +1,290 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Página oficial do BurgerShot Bot, com acesso aos Termos de Serviço e à Política de Privacidade.">
+  <meta name="robots" content="index,follow">
+  <title>BurgerShot Bot</title>
+  
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-soft:#111a2c;
+    --card:#162238;
+    --card-2:#1b2a45;
+    --text:#f7f8fb;
+    --muted:#b8c2d1;
+    --blue:#1f4274;
+    --blue-2:#2b5a99;
+    --red:#c91f2c;
+    --orange:#db681f;
+    --gold:#e0ae66;
+    --brown:#642b16;
+    --border:rgba(255,255,255,.10);
+    --shadow:0 20px 60px rgba(0,0,0,.25);
+    --radius:22px;
+  }
 
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(43,90,153,.22), transparent 34%),
+      radial-gradient(circle at top right, rgba(219,104,31,.15), transparent 28%),
+      var(--bg);
+    line-height:1.7;
+  }
+
+  a{color:inherit}
+  .wrap{width:min(1100px,calc(100% - 36px));margin:0 auto}
+  .site-header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(11,18,32,.84);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    min-height:76px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:24px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+    text-decoration:none;font-weight:800;letter-spacing:.2px;
+  }
+  .brand-mark{
+    width:42px;height:42px;border-radius:50%;
+    display:grid;place-items:center;
+    background:
+      linear-gradient(180deg,var(--orange) 0 36%,var(--brown) 36% 62%,#ff9e32 62% 70%,var(--brown) 70% 82%,var(--gold) 82% 100%);
+    border:4px solid var(--blue);
+    box-shadow:0 0 0 3px rgba(255,255,255,.95) inset;
+    position:relative;
+  }
+  .brand-mark:after{
+    content:"";
+    position:absolute;width:7px;height:7px;border-radius:50%;
+    background:#f0a35f;top:8px;left:14px;
+    box-shadow:9px -1px 0 #f0a35f,-7px 5px 0 #f0a35f;
+  }
+  .nav-links{display:flex;flex-wrap:wrap;gap:8px}
+  .nav-links a{
+    text-decoration:none;color:var(--muted);
+    padding:9px 12px;border-radius:12px;
+  }
+  .nav-links a:hover,.nav-links a[aria-current="page"]{
+    color:#fff;background:rgba(255,255,255,.07)
+  }
+
+  .hero{padding:86px 0 56px}
+  .hero-grid{
+    display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:#ffd09a;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(201,31,44,.15)}
+  h1{font-size:clamp(2.4rem,7vw,5.6rem);line-height:.98;margin:18px 0 22px;letter-spacing:-.045em}
+  .hero p{font-size:1.15rem;color:var(--muted);max-width:720px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    text-decoration:none;font-weight:750;padding:13px 18px;border-radius:14px;
+    border:1px solid var(--border);transition:.2s ease
+  }
+  .btn.primary{background:linear-gradient(135deg,var(--red),#ef4b3f);border-color:transparent}
+  .btn.secondary{background:rgba(255,255,255,.05)}
+  .btn:hover{transform:translateY(-1px)}
+
+  .bot-card{
+    min-height:330px;border:1px solid var(--border);
+    background:linear-gradient(160deg,var(--card),var(--card-2));
+    border-radius:30px;box-shadow:var(--shadow);
+    display:grid;place-items:center;padding:30px;position:relative;overflow:hidden;
+  }
+  .bot-card:before,.bot-card:after{
+    content:"";position:absolute;border-radius:50%;filter:blur(0)
+  }
+  .bot-card:before{width:190px;height:190px;background:rgba(43,90,153,.35);top:-60px;right:-40px}
+  .bot-card:after{width:150px;height:150px;background:rgba(219,104,31,.22);bottom:-50px;left:-35px}
+  .bot-icon{
+    width:180px;aspect-ratio:1;border-radius:36px;
+    background:linear-gradient(180deg,#e9eef6,#9ca9bb);
+    border:9px solid #263246;position:relative;z-index:1;
+    box-shadow:0 20px 50px rgba(0,0,0,.28)
+  }
+  .bot-icon .antenna{
+    position:absolute;left:50%;top:-57px;transform:translateX(-50%);
+    width:14px;height:52px;background:#aeb8c5;border:5px solid #263246;border-bottom:none
+  }
+  .bot-icon .antenna:after{
+    content:"";position:absolute;width:26px;height:26px;border-radius:50%;
+    background:var(--red);border:5px solid #263246;left:50%;top:-22px;transform:translateX(-50%)
+  }
+  .bot-face{
+    position:absolute;inset:25px 18px 55px;border-radius:24px;
+    background:linear-gradient(180deg,#8f441f,#4a2215);border:6px solid #263246;
+  }
+  .eye{position:absolute;top:38px;width:22px;height:22px;border:6px solid white;border-top-color:transparent;border-left-color:transparent;border-radius:50%;transform:rotate(45deg)}
+  .eye.left{left:33px}.eye.right{right:33px}
+  .burger-strip{
+    position:absolute;left:10px;right:10px;bottom:12px;height:34px;
+    background:linear-gradient(180deg,var(--orange) 0 45%,var(--gold) 45% 100%);
+    border-radius:18px;border:5px solid #263246
+  }
+
+  .section{padding:30px 0 70px}
+  .section h2{font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-.025em;margin:0 0 14px}
+  .lead{color:var(--muted);max-width:820px}
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
+  .card{
+    border:1px solid var(--border);background:rgba(22,34,56,.82);
+    border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)
+  }
+  .card h3{margin:0 0 8px}
+  .card p{margin:0;color:var(--muted)}
+
+  main.article{padding:58px 0 80px}
+  .article-shell{
+    display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:30px;align-items:start
+  }
+  article{
+    background:rgba(17,26,44,.86);border:1px solid var(--border);
+    border-radius:26px;padding:clamp(24px,5vw,48px);box-shadow:var(--shadow)
+  }
+  article h1{font-size:clamp(2.1rem,5vw,4rem);margin-top:0}
+  article h2{margin-top:38px;font-size:1.45rem;line-height:1.2}
+  article p,article li{color:#d6dce6}
+  article strong{color:#fff}
+  article ul{padding-left:22px}
+  article li+li{margin-top:7px}
+  .updated{
+    display:inline-block;margin-bottom:18px;color:#ffd09a;
+    background:rgba(219,104,31,.12);border:1px solid rgba(219,104,31,.25);
+    border-radius:999px;padding:7px 12px;font-size:.92rem
+  }
+  .notice{
+    margin:28px 0;padding:18px 20px;border-radius:16px;
+    background:rgba(43,90,153,.14);border:1px solid rgba(92,147,218,.24);color:#dfeaff
+  }
+  .toc{
+    position:sticky;top:98px;background:rgba(22,34,56,.82);
+    border:1px solid var(--border);border-radius:18px;padding:18px
+  }
+  .toc strong{display:block;margin-bottom:9px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 0}
+  .toc a:hover{color:#fff}
+  .contact-box{
+    margin-top:20px;padding:18px;border-radius:16px;
+    background:rgba(255,255,255,.04);border:1px solid var(--border)
+  }
+  code.inline{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.92em;padding:.15em .4em;border-radius:7px;background:rgba(255,255,255,.08)
+  }
+
+  footer{border-top:1px solid var(--border);padding:28px 0 40px;color:var(--muted)}
+  .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .footer-row a{color:var(--muted);text-decoration:none}
+  .footer-row a:hover{color:#fff}
+
+  @media (max-width:850px){
+    .hero-grid,.article-shell{grid-template-columns:1fr}
+    .bot-card{min-height:260px}
+    .toc{position:static;order:-1}
+  }
+  @media (max-width:640px){
+    .nav{align-items:flex-start;padding:16px 0;flex-direction:column}
+    .nav-links{width:100%}
+    .nav-links a{padding-left:0;padding-right:14px}
+    .hero{padding-top:56px}
+    .cards{grid-template-columns:1fr}
+  }
+</style>
+
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="BurgerShot Bot - página inicial">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>BurgerShot Bot</span>
+    </a>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="index.html" aria-current="page">Início</a>
+      <a href="terms.html" >Termos</a>
+      <a href="privacy.html" >Privacidade</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Discord Bot</span>
+          <h1>Gestão BurgerShot, mais simples.</h1>
+          <p>
+            O BurgerShot Bot apoia os processos de recrutamento, disponibilidade,
+            formação, avaliação, presença, convites e registos administrativos
+            dentro dos servidores Discord autorizados.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="terms.html">Ver Termos de Serviço</a>
+            <a class="btn secondary" href="privacy.html">Ver Política de Privacidade</a>
+          </div>
+        </div>
+        <div class="bot-card" aria-label="Ilustração estilizada de um bot BurgerShot">
+          <div class="bot-icon" aria-hidden="true">
+            <div class="antenna"></div>
+            <div class="bot-face">
+              <span class="eye left"></span>
+              <span class="eye right"></span>
+            </div>
+            <div class="burger-strip"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Documentação legal</h2>
+        <p class="lead">
+          Estes documentos explicam as condições de utilização do bot e de que forma
+          são tratados os dados necessários ao seu funcionamento.
+        </p>
+
+        <div class="cards">
+          <a class="card" href="terms.html" style="text-decoration:none">
+            <h3>Termos de Serviço</h3>
+            <p>Regras de utilização, disponibilidade, responsabilidades e conduta aplicável ao bot.</p>
+          </a>
+          <a class="card" href="privacy.html" style="text-decoration:none">
+            <h3>Política de Privacidade</h3>
+            <p>Informação sobre recolha, utilização, armazenamento e eliminação de dados.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 BurgerShot Bot</span>
+    <span>
+      <a href="terms.html">Termos de Serviço</a>
+      &nbsp;·&nbsp;
+      <a href="privacy.html">Política de Privacidade</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
